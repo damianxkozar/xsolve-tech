@@ -1,14 +1,15 @@
 ---
-title: PHP with MySQL 8
-subTitle: How to avoid authentication method error
-tags: ["PHP", "MySQL", "MySQL 8", "PDO", "PDO_MYSQL"]
-cover: php.png
+title: Doctrine with MySQL 8
+slug: doctrine-with-mysql-8
+subTitle: How to use them together
+tags: ["PHP", "MySQL", "Doctrine", "Doctrine DBAL"]
+cover: doctrine.png
 postAuthor: Przemek Pawlas
 ---
 
 ## Issue
 
-By default MySQL `8.x` doesn't work with older versions of PHP.
+By default `MySQL 8.x` doesn't work with `doctrine/dbal` <= `2.8.x`.
 You get an error:
 ```
 The server requested authentication method unknown to the client: [caching_sha2_password]
@@ -16,8 +17,7 @@ The server requested authentication method unknown to the client: [caching_sha2_
 
 ## How to get around it?
 
-The solutions are very simple - you can either upgrade PHP to `7.1.16`/`7.2.4` 
-or if you want to stick to an older version force MySQL to use the old `5.x`
+The solution is very simple - you can force MySQL to use the old `5.x`
 authentication method by default. All you have to do is add:
 
 ```
